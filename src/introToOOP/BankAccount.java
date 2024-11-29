@@ -2,23 +2,37 @@ package introToOOP;
 
 public class BankAccount {
 
-    double balance;
-    String ownerName;
+    private double balance;
+    private String ownerName;
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
 
     public void addDeposit(double depositAmount) {
-        if ( depositAmount<0) {
-            System.out.println("Invalid deposit amount");
-            return;
+        if ( depositAmount>0) {
+            balance += depositAmount;
         }
-        balance += depositAmount;
+
     }
 
     public void withdraw(double withdrawAmount) {
-        if(withdrawAmount > balance) {
-            System.out.println("Insufficient funds");
-            return;
+        if( balance >0 && withdrawAmount < balance) {
+            balance -= withdrawAmount;
         }
-        balance -= withdrawAmount;
+
     }
 
 
