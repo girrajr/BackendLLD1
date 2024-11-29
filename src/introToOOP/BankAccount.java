@@ -30,7 +30,7 @@ public class BankAccount {
     }
 
     public void setBalance(double balance) {
-        if( balance>0 && this.balance == 0){
+        if( balance>0){
             transactions.add(LocalDateTime.now()+" Set Balance: " + balance + " New balance: " + (this.balance + balance));
             this.balance = balance;
         }
@@ -60,9 +60,7 @@ public class BankAccount {
 
 
     public ArrayList<String> getTransactions() {
-        ArrayList<String> transactions = new ArrayList<>();
-        transactions.addAll(this.transactions);
-        return transactions;
+        return new ArrayList<>(this.transactions);
     }
 
 
