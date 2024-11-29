@@ -9,16 +9,20 @@ public class BankAccount {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
     public String getOwnerName() {
         return ownerName;
     }
 
+    public void setBalance(double balance) {
+        if( balance>0){
+            this.balance = balance;
+        }
+
+    }
     public void setOwnerName(String ownerName) {
-        this.ownerName = ownerName;
+        if( ownerName != null && !ownerName.isEmpty()) {
+            this.ownerName = ownerName;
+        }
     }
 
     public void addDeposit(double depositAmount) {
