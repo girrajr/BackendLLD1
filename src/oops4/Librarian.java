@@ -11,9 +11,14 @@ public class Librarian extends User{
 
     @Override
     void displayDashboard() {
-        System.out.println("Librarian Dashboard Employee Number: " + employeeNumber);
+        System.out.println("Librarian Dashboard");
+        System.out.println("Employee Number: " + employeeNumber + "Name: " + getName());
     }
 
+
+    /**
+     * Librarian can borrow any no of books so returning true
+     */
     @Override
     boolean canBorrowBooks() {
         return true;
