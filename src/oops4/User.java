@@ -33,12 +33,15 @@ public abstract class User {
     }
 
     public User(User user){
-        this.userId = generateUniqueUserId(); // This method will generate a unique user id everytime a new user is created
+        this.userId = generateUniqueUserId();
         this.name = user.name;
         this.contactInfo = user.contactInfo;
     }
 
-
+    /**
+     * This method will generate a unique user id
+     * everytime a new user is created
+     */
     private String generateUniqueUserId() {
         return "";
     }
