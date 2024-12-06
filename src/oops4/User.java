@@ -54,7 +54,7 @@ public abstract class User {
      * This method will generate a unique user id
      * everytime a new user is created
      */
-    private String generateUniqueUserId() {
+    public final String generateUniqueUserId() {
         return "User - "+ ++totalUsers;
     }
 
