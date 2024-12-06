@@ -37,6 +37,13 @@ public abstract class User {
         this.contactInfo = user.contactInfo;
     }
 
+    /**
+     * This method is used to display the dashboard
+     * of the user based on the type of user
+     * which is implemented by the child classes
+     */
     abstract void  displayDashboard();
+
+
     abstract boolean canBorrowBooks();
 }
