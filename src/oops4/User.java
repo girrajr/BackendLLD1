@@ -2,7 +2,7 @@ package oops4;
 
 public abstract class User {
 
-    private String  userId;
+    private String userId;
     private String name;
     private String contactInfo;
 
