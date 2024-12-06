@@ -2,7 +2,7 @@ package oops4;
 
 public abstract class User {
 
-    private int userId;
+    private String  userId;
     private String name;
     private String contactInfo;
 
@@ -23,10 +23,10 @@ public abstract class User {
     }
 
     public User(){
-        this.userId = 0;
+        this.userId = "0";
     }
 
-    public User(int userId, String name) {
+    public User(String userId, String name) {
         this.userId = userId;
         this.name = name;
     }
