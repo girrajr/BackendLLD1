@@ -2,6 +2,8 @@ package oops4;
 
 public abstract class User {
 
+    private static int totalUsers;
+
     private String userId;
     private String name;
     private String contactInfo;
@@ -39,15 +41,6 @@ public abstract class User {
     }
 
     /**
-     * This method will generate a unique user id
-     * everytime a new user is created
-     */
-    private String generateUniqueUserId() {
-        return "";
-    }
-
-
-    /**
      * This method is used to display the dashboard
      * of the user based on the type of user
      * which is implemented by the child classes
@@ -56,4 +49,16 @@ public abstract class User {
 
 
     abstract boolean canBorrowBooks();
+
+    /**
+     * This method will generate a unique user id
+     * everytime a new user is created
+     */
+    private String generateUniqueUserId() {
+        return "User - "+ ++totalUsers;
+    }
+
+    public static int getTotalUsers() {
+        return totalUsers;
+    }
 }
