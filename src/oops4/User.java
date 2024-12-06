@@ -23,19 +23,26 @@ public abstract class User {
     }
 
     public User(){
-        this.userId = "0";
+        this.userId = generateUniqueUserId();
     }
 
-    public User(String userId, String name) {
-        this.userId = userId;
+    public User(String name, String contactInfo) {
+        this.userId = generateUniqueUserId();
         this.name = name;
+        this.contactInfo = contactInfo;
     }
 
     public User(User user){
-        this.userId = user.userId;
+        this.userId = generateUniqueUserId(); // This method will generate a unique user id everytime a new user is created
         this.name = user.name;
         this.contactInfo = user.contactInfo;
     }
+
+
+    private String generateUniqueUserId() {
+        return "";
+    }
+
 
     /**
      * This method is used to display the dashboard
