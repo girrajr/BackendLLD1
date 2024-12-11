@@ -9,9 +9,11 @@ public class Client {
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        //we need to change the thread pool to cached thread pool as with 2 thread its working previously beacuse
+        // we wrer creating new threadpool every time inside the mergedShort method itself
+        ExecutorService executorService = Executors.newCachedThreadPool();
 
-        MergeSort mergeSort = new MergeSort(new int[]{12, 11, 13, 5, 6, 7});
+        MergeSort mergeSort = new MergeSort(new int[]{12, 11, 13, 5, 6, 7}, executorService);
 
         int[] sortedArray = executorService.submit(mergeSort).get();
 

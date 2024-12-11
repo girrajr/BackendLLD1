@@ -8,9 +8,11 @@ import java.util.concurrent.Future;
 public class MergeSort implements Callable<int[]> {
 
     private int[] arr;
+    private ExecutorService executorService ;
 
-    MergeSort(int[] arr){
+    MergeSort(int[] arr, ExecutorService executorService){
         this.arr = arr;
+        this.executorService = executorService;
     }
 
 
@@ -40,19 +42,16 @@ public class MergeSort implements Callable<int[]> {
                 }
 
 
-                MergeSort leftSort = new MergeSort(left);
-                MergeSort rightSort = new MergeSort(right);
+                MergeSort leftSort = new MergeSort(left, executorService);
+                MergeSort rightSort = new MergeSort(right, executorService);
 
-        // we need to remove this line from here and add pass it in Constructor of MergeSort as it is creating multiple threadpools
-                ExecutorService executorService = Executors.newFixedThreadPool(2);
-                Future<int[]> leftFuture = executorService.submit(leftSort);
+               Future<int[]> leftFuture = executorService.submit(leftSort);
                 Future<int[]> righFuture = executorService.submit(rightSort);
 
                 int[] leftSortedArray = leftFuture.get();
                 int[] rightSortedArray = righFuture.get();
 
-             //  executorService.shutdown();   // if we not write this line then executorService will not shutdown and program will not terminate
-        return merge(leftSortedArray, rightSortedArray);
+               return merge(leftSortedArray, rightSortedArray);
     }
 
     public int[] merge(int[] left, int[] right){
