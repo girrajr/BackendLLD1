@@ -1,6 +1,7 @@
 package CollectionLab;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class RecentlyViewed< T >{
 
@@ -8,15 +9,27 @@ public class RecentlyViewed< T >{
     int maxSize;
 
     public RecentlyViewed() {
-        this.maxSize = 10;
+        this.maxSize = 3;
         list = new LinkedList<>();
     }
 
     public void addRecentlyViewed(T item) {
+
+        // remove item if already present
+        list.remove(item);
+
+        // remove last item if list is full
         if(list.size() == maxSize) {
-            list.removeFirst();
+            list.removeLast();
         }
-        list.add(item);
+
+        // add item to the front of the list
+        list.addFirst(item);
+    }
+
+
+    public List<T> getRecentlyViewed() {
+        return List.copyOf(list);
     }
 
 }

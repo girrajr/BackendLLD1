@@ -6,11 +6,9 @@ import java.util.List;
 public class Inventory<T extends Item> {
 
     HashMap<String, T> items ;
-    RecentlyViewed< T > recentlyViewed;
 
     public Inventory() {
         items = new HashMap<>();
-        recentlyViewed = new RecentlyViewed<>();
     }
 
     public void addItem(T Item) {
@@ -18,7 +16,6 @@ public class Inventory<T extends Item> {
             System.out.println("Item with id "+Item.getId()+" already exists");
             return;
         }
-        recentlyViewed.addRecentlyViewed(Item);
         items.put(Item.getId(), Item);
 
     }
