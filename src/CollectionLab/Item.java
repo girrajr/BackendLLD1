@@ -14,6 +14,10 @@ public class Item implements Comparable<Item> {
         this.quantity = quantity;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -29,5 +33,10 @@ public class Item implements Comparable<Item> {
     @Override
     public int compareTo(Item o) {
         return this.name.compareTo(o.name);
+    }
+
+    @Override
+    public String toString() {
+        return  this.id + " " + this.name + " " + this.price + " " + this.quantity;
     }
 }
