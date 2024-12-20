@@ -12,14 +12,26 @@ public class Inventory<T extends Item> {
     }
 
     public void addItem(T Item) {
+        if(items.containsKey(Item.getId())){
+            System.out.println("Item with id "+Item.getId()+" already exists");
+            return;
+        }
         items.put(Item.getId(), Item);
     }
 
     public void removeItem(String id) {
+        if(!items.containsKey(id)){
+            System.out.println("Item with id "+id+" does not exist");
+            return;
+        }
         items.remove(id);
     }
 
     public T getItem(String id) {
+        if(!items.containsKey(id)){
+            System.out.println("Item with id "+id+" does not exist");
+            return null;
+        }
         return items.get(id);
     }
 
